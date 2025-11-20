@@ -1,39 +1,57 @@
-// src/pages/Menu.jsx
-const menu = {
-  Starters: [
-    { name: 'Tomato Basil Soup', price: 6.5, desc: 'Creamy, with garlic croutons' },
-    { name: 'Crispy Calamari',  price: 11,  desc: 'Lemon aioli' }
-  ],
-  Mains: [
-    { name: 'Herb Roast Chicken', price: 18, desc: 'Pan jus, seasonal veg' },
-    { name: 'Rigatoni Bolognese', price: 17, desc: 'Parmesan, basil' }
-  ],
-  Desserts: [
-    { name: 'Tiramisu', price: 8.5, desc: 'Espresso-soaked ladyfingers' }
-  ]
-}
+import { Container, Row, Col, Card } from "react-bootstrap";
 
 export default function Menu() {
   return (
-    <section>
-      <h1 className="mb-4">Menu</h1>
-      {Object.entries(menu).map(([section, items]) => (
-        <div key={section} className="mb-4">
-          <h3 className="border-bottom pb-2">{section}</h3>
-          <ul className="list-unstyled m-0">
-            {items.map((i) => (
-              <li key={i.name} className="d-flex justify-content-between py-2 border-bottom">
-                <div>
-                  <div className="fw-semibold">{i.name}</div>
-                  <div className="text-muted small">{i.desc}</div>
-                </div>
-                <div className="fw-semibold">${i.price.toFixed(2)}</div>
+    <section className="py-5 bg-light">
+      <Container>
+        <h2 className="mb-4 text-center">Menu</h2>
+
+        <Card className="mb-5 border-0 shadow-sm">
+          <Card.Img
+            variant="top"
+            src="https://img.cdn4dd.com/cdn-cgi/image/fit=cover,width=600,height=400,format=auto,quality=80/https://doordash-static.s3.amazonaws.com/media/store/header/8ec325b1-e335-4cdb-9ff3-475879096c86.jpeg"
+            alt="Seafood boil"
+          />
+        </Card>
+
+        {/* Menu */}
+        <Row className="gy-4">
+          <Col md={6}>
+            <h4>Appetizers</h4>
+            <ul className="menu-list">
+              <li>
+                <span>Cajun Fries</span>
+                <span>$4.25</span>
               </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-      <p className="text-muted small">* Menu items and prices subject to change.</p>
+              <li>
+                <span>Fried Veg Spring Rolls</span>
+                <span>$2.95</span>
+              </li>
+              <li>
+                <span>Takoyaki</span>
+                <span>$6.95</span>
+              </li>
+            </ul>
+          </Col>
+          <Col md={6}>
+            <h4>Seafood Boil</h4>
+            <ul className="menu-list">
+              <li>
+                <span>Shrimp Boil</span>
+                <span>Market</span>
+              </li>
+              <li>
+                <span>Snow Crab Legs</span>
+                <span>Market</span>
+              </li>
+              <li>
+                <span>Combo Platter</span>
+                <span>Market</span>
+              </li>
+            </ul>
+          </Col>
+        </Row>
+      </Container>
     </section>
-  )
+  );
 }

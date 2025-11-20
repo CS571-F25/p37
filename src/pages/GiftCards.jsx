@@ -1,4 +1,3 @@
-// src/pages/GiftCards.jsx
 import { Card, Button } from 'react-bootstrap'
 
 const tiers = [
