@@ -1,27 +1,24 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
-import SiteNav from './components/SiteNav'
-import Footer from './components/Footer'
-
-import Home from './pages/Home'
-import Menu from './pages/Menu'
-import GiftCards from './pages/GiftCards'
-import Gallery from './pages/Gallery'
-import Reservation from './pages/Reservation'
+import { Routes, Route } from "react-router-dom";
+import SiteNav from "./components/SiteNav.jsx";
+import Home from "./pages/Home.jsx";
+import Menu from "./pages/Menu.jsx";
+import Gallery from "./pages/Gallery.jsx";
+import GiftCards from "./pages/GiftCards.jsx";
+import Reservation from "./pages/Reservation.jsx";
+import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
-    <HashRouter>
+    <>
       <SiteNav />
-      <main className="container py-4">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/giftcards" element={<GiftCards />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/reservation" element={<Reservation />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/gift-cards" element={<GiftCards />} />
+        <Route path="/reservation" element={<Reservation />} />
+      </Routes>
       <Footer />
-    </HashRouter>
-  )
+    </>
+  );
 }

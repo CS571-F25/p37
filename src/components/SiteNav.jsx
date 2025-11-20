@@ -1,25 +1,22 @@
-import { Navbar, Nav, Container } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
+import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function SiteNav() {
-  const linkClass = ({ isActive }) =>
-    'nav-link' + (isActive ? ' fw-bold text-decoration-underline' : '')
-
   return (
-    <Navbar bg="light" expand="md" className="border-bottom">
+    <Navbar bg="light" expand="lg" sticky="top">
       <Container>
-        <Navbar.Brand as={NavLink} to="/">🍽️ Your Restaurant</Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse>
+        <Navbar.Brand>MAD Seafood Boiler</Navbar.Brand>
+        <Navbar.Toggle aria-controls="main-nav" />
+        <Navbar.Collapse id="main-nav">
           <Nav className="ms-auto">
-            <NavLink to="/" className={linkClass} end>Home</NavLink>
-            <NavLink to="/menu" className={linkClass}>Menu</NavLink>
-            <NavLink to="/giftcards" className={linkClass}>Gift Cards</NavLink>
-            <NavLink to="/gallery" className={linkClass}>Gallery</NavLink>
-            <NavLink to="/reservation" className={linkClass}>Reservation</NavLink>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/menu">Menu</Nav.Link>
+            <Nav.Link as={Link} to="/gift-cards">Gift Cards</Nav.Link>
+            <Nav.Link as={Link} to="/gallery">Gallery</Nav.Link>
+            <Nav.Link as={Link} to="/reservation">Reservation</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
+  );
 }
