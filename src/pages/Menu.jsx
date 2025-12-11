@@ -1,7 +1,12 @@
+// src/pages/Menu.jsx
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logoImage from "../assets/mad-logo.png";
 
+const DELIVERY_URL =
+  "https://www.ubereats.com/store/mad-seafood-boiler-and-sushi/VoKs2uZmTECYCeVECDm78A";
+
+// ---------------- MENU DATA ----------------
 const menuSections = [
   {
     title: "Appetizers",
@@ -171,62 +176,36 @@ const menuSections = [
       },
     ],
   },
-  {
-    title: "Special Roll",
-    items: [
-      {
-        name: "Madison Roll",
-        price: "13.95",
-        description:
-          "Spicy tuna, deep fried. Seven pieces cream cheese, avocado and spicy mayo.",
-      },
-      {
-        name: "Volcano Roll",
-        price: "13.95",
-        description:
-          "Spicy deep fried roll with crab stick, salmon, crunch, and spicy mayo.",
-      },
-      {
-        name: "Rainbow Roll",
-        price: "11.95",
-        description:
-          "California roll topped with tuna, salmon, white fish, and avocado.",
-      },
-      {
-        name: "Crazy Tuna Roll",
-        price: "12.95",
-        description:
-          "Spicy tuna roll topped with seared tuna, crunch, avocado, and spicy mayo.",
-      },
-    ],
-  },
 ];
 
+// ---------------- COMPONENT ----------------
 export default function Menu() {
   return (
     <main className="menu-page">
-      {/* ⭐ SAME NAV BAR AS HOME */}
-      <div className="menu-nav">
-        <div className="hero-header">
-          <div className="hero-brand">
-            <img
-              src={logoImage}
-              alt="Mad Seafood Boiler logo"
-              className="hero-logo-img"
-            />
-            <span className="hero-logo-text">Mad Seafood Boiler</span>
-          </div>
-
-          <nav className="hero-nav">
-            <Link to="/">Home</Link>
-            <Link to="/menu">Menu</Link>
-            <Link to="/order">Order</Link>
-            <a href="https://squareup.com/gift/MLD985VS0ZG0E/order">
-              Giftcards
-            </a>
-          </nav>
+      {/* NAVBAR (same as Home) */}
+      <header className="hero-header">
+        <div className="hero-brand">
+          <img
+            src={logoImage}
+            alt="Mad Seafood Boiler logo"
+            className="hero-logo-img"
+          />
+          <span className="hero-logo-text">Mad Seafood Boiler</span>
         </div>
-      </div>
+
+        <nav className="hero-nav">
+          <Link to="/">Home</Link>
+          <Link to="/menu">Menu</Link>
+          <Link to="/order">Order</Link>
+          <a
+            href="https://squareup.com/gift/MLD985VS0ZG0E/order"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Giftcards
+          </a>
+        </nav>
+      </header>
 
       {/* MENU CONTENT */}
       <Container>
@@ -246,7 +225,9 @@ export default function Menu() {
                   <div className="menu-item-left">
                     <div className="menu-item-name">{item.name}</div>
                     {item.description && (
-                      <div className="menu-item-desc">{item.description}</div>
+                      <div className="menu-item-desc">
+                        {item.description}
+                      </div>
                     )}
                   </div>
                   <div className="menu-item-price">{item.price}</div>
