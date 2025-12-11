@@ -1,34 +1,27 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./SiteNav.css";
+import logo from "../assets/mad_logo.png";
 
 export default function SiteNav() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className="shadow-sm">
-      <Container>
-        <Navbar.Brand className="fw-bold">
-          <span className="me-2">🦀</span>MAD Seafood Boiler
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="main-nav" />
-        <Navbar.Collapse id="main-nav">
-          <Nav className="ms-auto">
-            <Nav.Link as={NavLink} to="/" end>
-              Home
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="/menu">
-              Menu
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="/gift-cards">
-              Gift Cards
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="/gallery">
-              Gallery
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="/reservation">
-              Reserve a Table
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <nav className="site-nav">
+      <div className="nav-left">
+        <img src={logo} alt="Mad Seafood Boiler" className="nav-logo" />
+        <span className="nav-title">Mad Seafood Boiler</span>
+      </div>
+
+      <div className="nav-links">
+        <Link to="/">Home</Link>
+        <Link to="/menu">Menu</Link>
+        <a
+          href="https://www.ubereats.com/store/mad-seafood-boiler-and-sushi/VoKs2uZmTECYCeVECDm78A"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Order
+        </a>
+        <Link to="/gift-cards">Giftcards</Link>
+      </div>
+    </nav>
   );
 }

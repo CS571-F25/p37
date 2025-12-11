@@ -7,7 +7,8 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* IMPORTANT: basename must match your Vite base (/p37/) */}
+    <BrowserRouter basename="/p37">
       <App />
     </BrowserRouter>
   </React.StrictMode>
